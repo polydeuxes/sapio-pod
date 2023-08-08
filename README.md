@@ -22,7 +22,9 @@ podman machine init --cpus 4 --disk-size 30 -m 4096   # Spin up a machine (here 
 podman machine start                                  # Start the machine
 # For Image on Docker.io
 podman run  -e DISPLAY=$HOST:0 --net host  -it sapiolang/sapio:latest
-# to build your ownn
+#Docker Build
+sudo docker run --privileged -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --net host -it polyd/sapio:8-8-23
+# to build your own
 podman build -t my_custom_image .                     # optional: if you want to build the image yourself
 podman run  -e DISPLAY=$HOST:0 --net host  -it my_custom_image
 ```
