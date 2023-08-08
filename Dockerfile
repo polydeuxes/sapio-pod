@@ -23,7 +23,7 @@ RUN set -eux; git clone --depth 1 https://github.com/JeremyRubin/bitcoin.git -b 
 && cd .. && rm -rf bitcoin
 
 # Clear Bitcoin Setup
-FROM node:lts-bullseye-slim
+FROM node:16-bullseye-slim
 
 
 RUN apt-get update && apt-get install -y wget \
