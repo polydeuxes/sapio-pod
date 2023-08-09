@@ -9,7 +9,7 @@ RUN useradd -ms /bin/bash ubitcoin
 USER ubitcoin
 WORKDIR /home/ubitcoin
 
-RUN set -eux; git clone --depth 1 https://github.com/JeremyRubin/bitcoin.git -b checktemplateverify-rebase-4-15-21-WORK \
+RUN set -eux; git clone --depth 1 https://github.com/bitcoin-inquisition/bitcoin.git -b 24.0 \
 && cp bitcoin/share/rpcauth/rpcauth.py  . \
 && cd bitcoin \
 && cd depends \
@@ -140,5 +140,6 @@ USER root
 RUN chmod +x runner.sh
 RUN chmod +x /bin/bash
 RUN chmod +x /bin/sh
+ENV PATH="/home/ubitcoin/bin:/home/app:$PATH"
 ENTRYPOINT ["/bin/sh", "-c"]
 CMD ./runner.sh
