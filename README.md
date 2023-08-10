@@ -1,5 +1,3 @@
-# Warning: Not Actively Maintained, PR any Fixes
-
 # How to Set Up:
 
 Guides should work easily for unix setups.
@@ -18,13 +16,14 @@ clients". Keep xcrystal running.
 ```bash
 export DISPLAY=:0                                     # Check if DISPLAY is set locally before you do this.
 xhost + $HOST                                         # This will automatically add entries for your computer. N.B. security considerations.
-podman machine init --cpus 4 --disk-size 30 -m 4096   # Spin up a machine (here with 4gb ram, 30 GB disk... you can pick whatever)
-podman machine start                                  # Start the machine
+                               # Start the machine
 # For Image on Docker.io
 podman run  -e DISPLAY=$HOST:0 --net host  -it sapiolang/sapio:latest
 #Docker Build
 sudo docker run -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --net host -it polyd/sapio:8-8-23
 # to build your own
 podman build -t my_custom_image .                     # optional: if you want to build the image yourself
+podman machine init --cpus 4 --disk-size 30 -m 4096   # Spin up a machine (here with 4gb ram, 30 GB disk... you can pick whatever)
+podman machine start   
 podman run  -e DISPLAY=$HOST:0 --net host  -it my_custom_image
 ```
