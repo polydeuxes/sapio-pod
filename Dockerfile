@@ -128,6 +128,8 @@ lsb-release \
 xdg-utils \
 neovim procps && rm -rf /var/lib/apt/lists/*
 
+# Fix Electron Sandbox Issue
+RUN chmod 4755 /home/app/sapio-studio/node_modules/electron/dist/chrome-sandbox
 
 # Copy Bitcoin Files
 RUN useradd -ms /bin/bash ubitcoin
