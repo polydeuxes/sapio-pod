@@ -22,5 +22,5 @@ su ubitcoin -c "cd && ./bin/bitcoin-cli -generate 200"
 
 su app -c "cd && head -n 4096 /dev/urandom | shasum -a 256 |cut -d' ' -f 1 > ORACLE_SEED"
 su app -c "cd && cd sapio-studio && yarn serve build -l 3000 -n"&
-su app -c "cd && cd sapio-studio && yarn electron ."
+su app -c "cd && cd sapio-studio && yarn electron . --no-sandbox"
 
