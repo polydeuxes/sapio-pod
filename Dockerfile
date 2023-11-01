@@ -54,7 +54,6 @@ RUN set -eux; \
     dpkgArch="$(dpkg --print-architecture)"; \
     case "${dpkgArch##*-}" in \
         amd64) rustArch='x86_64-unknown-linux-gnu'; rustupSha256='3dc5ef50861ee18657f9db2eeb7392f9c2a6c95c90ab41e45ab4ca71476b4338' ;; \
-        ... # rest of the cases remain unchanged \
     esac; \
     url="https://static.rust-lang.org/rustup/archive/1.24.3/${rustArch}/rustup-init"; \
     wget "$url"; \
